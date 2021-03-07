@@ -9,8 +9,10 @@ messageContent = form.getvalue('message-content')
 messageKey = form.getvalue('message-key')
 messageType = 0 if form.getvalue('message-type') else 1
 
+serverUser = '' #insert MySQL user info here before using
+serverPass = ''
 # connect to database.
-db = mysql.connector.connect(host='localhost', user='ryanh', passwd='k33p1ts1mpl3', db='anonymsg', auth_plugin='mysql_native_password')
+db = mysql.connector.connect(host='localhost', user=serverUser, passwd=serverPass, db='anonymsg', auth_plugin='mysql_native_password')
 cursor = db.cursor()
 
 def checkExistence(msgKey,cursor,db):
@@ -32,24 +34,6 @@ def eraseMessage(msgKey,cursor,db):
 def insertMessage(msgKey,msgContent,msgType,cursor,db):
     sql = 'INSERT INTO messages (message_content, message_key, message_type) VALUES ("{}", "{}", {});'.format(msgContent,msgKey,msgType)
     cursor.execute(sql)
-
-#   if exists[0]:
-#        print('<p>A message already exists!</p>')
-        # check to see if it is a one-time access message.
-#        sql = 'SELECT message_type FROM messages WHERE message_key = "%s";' % (messageKey)
-#        cursor.execute(sql)
-#        isPrivate = cursor.fetchone()
-#        if isPrivate[0]:
-#            print('<p>This message is private!</p>')
-#        else:
-#            print('<p>This message is public!</p>')
-#            sql = 'SELECT message_content FROM messages WHERE message_key = "%s";' % (messageKey)
-#            cursor.execute(sql)
-#            message = cursor.fetchone()
-#            print(message[0])
-#    else:
-#        insertMessage(messageKey, messageContent, messageType, cursor, db)
-#        print('<p>Your message was stored!</p>')
 
 print('Content-Type: text/html')
 print()
