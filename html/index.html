@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width,initial-scale=1'>
+
+		<title>Anony|msg</title>
+
+		<link rel='stylesheet' type='text/css' href='/css/styles.css'>
+	</head>
+
+	<body>
+		<h1>Anony|msg</h1>
+
+		<form id='leave-a-msg' method='post'>
+			<label for='message-content'>Content(required)</label>
+			<textarea id='message-content' name='message-content'></textarea><br>
+			<label for='message-key'>Message Key</label>
+			<input type='text' id='message-key' name='message-key'>
+			<label for='message-type'>Make message public</label>
+			<input type='checkbox' id='message-type' name='message-type'><br>
+			<div id='buttons'>
+				<input class='button' formaction='/cgi-bin/submit.cgi' type='submit' id='submit' name='submit' value='Submit'>
+				<input class='button' formaction='/cgi-bin/retrieve.cgi' type='submit' id='retrieve' name='retrieve' value='Retrieve'>
+			</div>
+		</form>
+
+		<h3>How it works</h3>
+		<p>Enter any message you would like into the 'Content' section of the form, enter the key that you would like the message to be identified by, optionally check the box if you want your message to be publicly available for 30 days, and click the 'Submit' button.</p>
+		<p>By default, messages are private, and are only retrievable once. In an effort to preserve the privacy of users' messages, if someone submits a message with the same key as a previously stored message, it is silently overwritten. If you would like your message to be associated with a given key for more than one-time access, you can check the box to make the message public.</p>
+		<p>No information about users is retained on the server; once you post your message, the only record of it is the message itself.</p>
+	</body>
+</html>
+

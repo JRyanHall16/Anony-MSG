@@ -1,0 +1,22 @@
+html {
+	text-align: center;
+}
+
+h1 {
+	font-size: 3rem;
+	padding-top: 2rem;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+form textarea {
+	height: 10rem;
+}
+
+form #buttons {
+	flex-direction: row;
+}
+
