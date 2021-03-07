@@ -6,7 +6,9 @@ import mysql.connector
 form = cgi.FieldStorage()
 messageKey = form.getvalue('message-key')
 
-db = mysql.connector.connect(host='localhost', user='ryanh', passwd='k33p1ts1mpl3', db='anonymsg', auth_plugin='mysql_native_password')
+serverUser = '' #insert your MySQL server user info here before using
+serverPass = ''
+db = mysql.connector.connect(host='localhost', user=serverUser, passwd=serverPass, db='anonymsg', auth_plugin='mysql_native_password')
 cursor = db.cursor()
 
 def checkExistence(msgKey,cursor,db):
